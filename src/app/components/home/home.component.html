@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<div class="button-container">
+  <button mat-raised-button color="primary" routerLink="/create-device">
+    Create Device
+  </button>
+</div>
+
+<div class="card-container">
+  <mat-card appearance="outlined">
+    <mat-card-content>
+        <span style="margin-left:10px">ID</span>
+        <span style="margin-left: 100px;">Name</span>
+        <span style="margin-left: 20px;">Device Type</span>
+    </mat-card-content>
+  </mat-card>  
+</div>
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)" *ngFor="let device of devices">
+    <mat-expansion-panel-header>
+      <mat-panel-title> {{ device.id}} </mat-panel-title>
+      <mat-panel-description> {{ device.name}} </mat-panel-description>
+      <mat-panel-description> {{ device.deviceType}} </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card-actions>
+      <div class="button-container">
+      <button mat-fab color="primary">
+        <mat-icon>edit</mat-icon>
+      </button>
+      </div>
+      <div class="button-container">
+      <button mat-fab color="primary">
+        <mat-icon>delete</mat-icon>
+      </button>
+      </div>
+    </mat-card-actions>
+  </mat-expansion-panel>
+</mat-accordion>

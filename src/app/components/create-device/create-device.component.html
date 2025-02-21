@@ -1,0 +1,32 @@
+<mat-card class="form-container">
+    <mat-card-title>Create Device</mat-card-title>
+    <mat-card-content>
+      <form>
+        <!-- Device ID -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Device ID</mat-label>
+          <input matInput type="text" [(ngModel)]="device.id" name="deviceId" required>
+        </mat-form-field>
+  
+        <!-- Device Name -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Device Name</mat-label>
+          <input matInput type="text" [(ngModel)]="device.name" name="deviceName" required>
+        </mat-form-field>
+  
+        <!-- Device Type (Select) -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Device Type</mat-label>
+          <mat-select [(ngModel)]="device.deviceType" name="deviceType" required>
+            <mat-option value="Electronics">Electronics</mat-option>
+            <mat-option value="Communication">Communication</mat-option>
+            <mat-option value="Others">Others</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <!-- Submit Button -->
+        <button mat-raised-button color="primary" class="full-width" (click)="onSubmit()" routerLink="/">Create Device</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  
