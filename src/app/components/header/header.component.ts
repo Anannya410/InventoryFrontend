@@ -6,5 +6,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   imports: [MatToolbarModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
+  standalone: true
 })
 export class HeaderComponent {}

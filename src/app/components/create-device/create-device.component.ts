@@ -13,7 +13,8 @@ import { DeviceService } from '../../services/device.service';
   selector: 'app-create-device',
   imports: [RouterModule, MatCardModule, FormsModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatSelectModule],
   templateUrl: './create-device.component.html',
-  styleUrl: './create-device.component.css'
+  styleUrl: './create-device.component.css',
+  standalone: true
 })
 export class CreateDeviceComponent {
   device ={
@@ -24,16 +25,7 @@ export class CreateDeviceComponent {
 
   constructor(private deviceService: DeviceService) {} //Dependemcy Injection
 
-  onSubmit() {
-    this.deviceService.saveDevice(this.device).subscribe({
-      next: (response) => {
-        console.log('Device saved:', response);
-        alert('Device saved successfully!');
-      },
-      error: (err) => {
-        console.error('Error:', err);
-        alert('Failed to save device.');
-      },
-    });
+  async onSubmit() {
+    await this.deviceService.saveDevice(this.device)
   }
 }

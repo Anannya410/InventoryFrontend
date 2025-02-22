@@ -14,6 +14,7 @@ import {MatIconModule} from '@angular/material/icon';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true
 })
 export class HomeComponent implements OnInit{
   readonly panelOpenState = signal(false);
@@ -22,16 +23,15 @@ export class HomeComponent implements OnInit{
 
   constructor(private deviceService: DeviceService){}
 
-  ngOnInit(){
-      this.deviceService.getDevices().subscribe({
-        next: (response) => {
-          this.devices = response;
-          console.log('Devices fetched: ', this.devices);
-        },
-        error: (err) => {
-          console.error('Error', err);
-          alert('Failed to load devices.');
-        }
-      })
+  async ngOnInit(){
+    await this.deviceService.getDevices()
+    this.deviceService.devices.subscribe((data) => {
+      this.devices = data
+    })
+  }
+
+  async deleteDevice(id: number){
+    await this.deviceService.deleteDevice(id)
+    console.log(this.devices)
   }
 }
