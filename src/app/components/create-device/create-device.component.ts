@@ -5,27 +5,35 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 
-import { DeviceService } from '../../services/device.service';
+import { DeviceDataService } from '../../services/device.service';
 
 @Component({
   selector: 'app-create-device',
-  imports: [RouterModule, MatCardModule, FormsModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatSelectModule],
+  imports: [
+    RouterModule,
+    MatCardModule,
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatSelectModule,
+  ],
   templateUrl: './create-device.component.html',
   styleUrl: './create-device.component.css',
-  standalone: true
+  standalone: true,
 })
 export class CreateDeviceComponent {
-  device ={
+  device = {
     id: null,
     name: '',
-    deviceType: ''
+    deviceType: '',
   };
 
-  constructor(private deviceService: DeviceService) {} //Dependemcy Injection
+  constructor(private deviceService: DeviceDataService) {} //Dependemcy Injection
 
   async onSubmit() {
-    await this.deviceService.saveDevice(this.device)
+    await this.deviceService.saveDevice(this.device);
   }
 }

@@ -1,0 +1,39 @@
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)" >
+      <mat-expansion-panel-header>
+        <mat-panel-title> {{ device.id }} </mat-panel-title>
+        @if(!isEditable){
+          <mat-panel-description> {{ device.name }} </mat-panel-description>
+          <mat-panel-description> {{ device.deviceType }} </mat-panel-description>
+        }
+        @else{
+          <mat-form-field appearance="outline" class="full-width">
+            <input matInput type="text" [(ngModel)]="device.name" name="deviceName" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <input matInput type="text" [(ngModel)]="device.deviceType" name="deviceType" required>
+          </mat-form-field>
+        }
+      </mat-expansion-panel-header>
+      <mat-card-actions>
+        <div class="button-container">
+        @if(!isEditable){
+          <button mat-fab color="primary" (click)="toggleUpdate(device.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        }
+        @else {
+          <button mat-fab color="primary" (click)="updateDevice(device)">
+            <mat-icon>save</mat-icon>
+          </button>
+        }
+        </div>
+        <div class="button-container">
+        <button mat-fab color="primary" (click)="deleteDevice(device.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        </div>
+      </mat-card-actions>
+    </mat-expansion-panel>
+  </mat-accordion>
