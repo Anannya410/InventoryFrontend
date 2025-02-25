@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { Device } from '../../types/device';
 
 @Component({
   selector: 'app-device-list',
@@ -28,7 +29,7 @@ export class DeviceListComponent {
   isEditable = false;
   editableDeviceID = -1;
 
-  @Input() device: any = null
+  @Input() device: Device = {} as Device
 
   constructor(private deviceDataService: DeviceDataService) {}
 
@@ -37,7 +38,7 @@ export class DeviceListComponent {
     this.editableDeviceID = id;
   }
 
-  async updateDevice(device: any) {
+  async updateDevice(device: Device) {
     this.isEditable = false;
     console.log("Updated:"+JSON.stringify(device))
     await this.deviceDataService.updateDevice(device);

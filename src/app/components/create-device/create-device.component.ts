@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
 import { DeviceDataService } from '../../services/device.service';
+import { Device } from '../../types/device';
 
 @Component({
   selector: 'app-create-device',
@@ -25,11 +26,7 @@ import { DeviceDataService } from '../../services/device.service';
   standalone: true,
 })
 export class CreateDeviceComponent {
-  device = {
-    id: null,
-    name: '',
-    deviceType: '',
-  };
+  device : Device = {} as Device
 
   constructor(private deviceService: DeviceDataService) {} //Dependemcy Injection
 

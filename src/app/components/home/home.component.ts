@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DeviceListComponent } from "../device-list/device-list.component";
+import { Device } from '../../types/device';
 
 @Component({
   selector: 'app-home',
@@ -31,7 +32,7 @@ import { DeviceListComponent } from "../device-list/device-list.component";
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  devices: any[] = [];
+  devices: Device[] = [];
 
   constructor(private deviceService: DeviceDataService) {}
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import axios from 'axios';
+import { Device } from '../types/device';
 
 @Injectable({
   providedIn: 'root',
@@ -13,13 +14,13 @@ export class DeviceDataService {
 
   constructor() {}
 
-  private devicesObservable$: BehaviorSubject<any> = new BehaviorSubject<any[]>(
+  private devicesObservable$: BehaviorSubject<Device[]> = new BehaviorSubject<Device[]>(
     []
   );
 
   devices = this.devicesObservable$.asObservable();
 
-  async saveDevice(device: any) {
+  async saveDevice(device: Device) {
     try {
       const response = await axios.post(this.saveApiUrl, device);
       if (response.status === 200) {
@@ -39,7 +40,7 @@ export class DeviceDataService {
     }
   }
 
-  async updateDevice(device: any) {
+  async updateDevice(device: Device) {
     try {
       await axios.put(this.updateApiUrl, device);
     } catch (err) {
@@ -52,7 +53,7 @@ export class DeviceDataService {
       const response = await axios.delete(`${this.deleteApiUrl}/${id}`);
       if (response.status === 200) {
         const updatedData = this.devicesObservable$.value.filter(
-          (item: any) => item.id !== id
+          (item: Device) => item.id !== id
         );
         this.devicesObservable$.next(updatedData);
         console.log('Device Deleted Successfully');
