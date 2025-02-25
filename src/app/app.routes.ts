@@ -4,5 +4,5 @@ import { CreateDeviceComponent } from './components/create-device/create-device.
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
-    {path: 'create-device', component: CreateDeviceComponent}
+    {path: 'create-device', component: CreateDeviceComponent},
 ];

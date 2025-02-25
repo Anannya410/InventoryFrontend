@@ -9,6 +9,7 @@ export class DeviceService {
   private saveApiUrl = 'http://localhost:8080/api/devices/save';
   private getApiUrl = 'http://localhost:8080/api/devices/getall';
   private deleteApiUrl = 'http://localhost:8080/api/devices/delete';
+  private updateApiUrl = 'http://localhost:8080/api/devices/update';
 
   constructor() {}
 
@@ -36,6 +37,14 @@ export class DeviceService {
       this.devicesObservable$.next(response.data)
     }catch(err){
       console.log(err);
+    }
+  }
+
+  async updateDevice(device: any){
+    try{
+      await axios.put(this.updateApiUrl, device) 
+    }catch(err){
+      console.log(err)
     }
   }
 
