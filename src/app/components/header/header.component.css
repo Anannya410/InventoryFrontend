@@ -1,3 +1,9 @@
 div span{
     margin-left: 1rem;
+    cursor:pointer;
 }
+
+.button-container {
+    margin: 100px;
+  }
+  

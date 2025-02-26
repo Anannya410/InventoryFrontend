@@ -1,0 +1,18 @@
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)" >
+      <mat-expansion-panel-header>
+        <mat-panel-title> {{ shelf.id }} </mat-panel-title>
+          <mat-panel-description> {{ shelf.name }} </mat-panel-description>
+          <mat-panel-description> {{ shelf.shelfType }} </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div *ngIf="shelf.shelfPositionId !== null; else noRelations" class="relations-container">
+        <span>Relations:</span>
+        <span>shelfPosition {{ shelf.shelfPositionId }}</span>
+      </div>
+      <ng-template #noRelations>
+        <span style="font-size: italic; color: gray;">No relations available</span>
+      </ng-template>
+
+    </mat-expansion-panel>
+  </mat-accordion>

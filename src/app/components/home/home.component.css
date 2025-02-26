@@ -1,24 +1,17 @@
 .button-container {
   margin-top: 20px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: right;
   padding-right: 20px;
 }
 
-.card-container{
+/* .card-container{
   margin-top: 20px;
   padding: 40px;
-}
+} */
 
 
-mat-expansion-panel{
-  margin-right: 40px;
-  margin-left: 40px;
-}
-
-mat-card-actions{
-  justify-content: right;
-}
 
 
 

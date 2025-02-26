@@ -6,12 +6,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-
-import { DeviceDataService } from '../../services/device.service';
-import { Device } from '../../types/device';
+import { ShelfDataService } from '../../../services/shelf/shelf-data.service';
+import { Shelf } from '../../../types/shelf';
 
 @Component({
-  selector: 'app-create-device',
+  selector: 'app-create-shelf',
   imports: [
     RouterModule,
     MatCardModule,
@@ -21,15 +20,16 @@ import { Device } from '../../types/device';
     MatButtonModule,
     MatSelectModule,
   ],
-  templateUrl: './create-device.component.html',
-  styleUrl: './create-device.component.css',
+  templateUrl: './create-shelf.component.html',
+  styleUrl: './create-shelf.component.css',
 })
-export class CreateDeviceComponent {
-  device : Device = {} as Device
+export class CreateShelfComponent {
+  shelf : Shelf = {} as Shelf
 
-  constructor(private deviceService: DeviceDataService) {} //Dependemcy Injection
+  constructor(private shelfDataService: ShelfDataService) {}
 
-  async onSubmit() {
-    await this.deviceService.saveDevice(this.device);
+  async onSubmit(){
+    await this.shelfDataService.saveShelf(this.shelf)
   }
+
 }

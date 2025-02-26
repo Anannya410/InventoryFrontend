@@ -1,0 +1,12 @@
+<app-header></app-header>
+
+<div class="button-container">
+  <button mat-raised-button color="primary" routerLink="/create-shelfPosition">
+    Create ShelfPosition
+  </button>
+</div>
+
+
+<div *ngFor="let shelfPosition of shelfPositions">
+  <app-shelf-position-list [shelfPosition]="shelfPosition"/>
+</div>

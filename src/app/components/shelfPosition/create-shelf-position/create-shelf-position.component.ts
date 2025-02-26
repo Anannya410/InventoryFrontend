@@ -6,12 +6,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-
-import { DeviceDataService } from '../../services/device.service';
-import { Device } from '../../types/device';
+import { ShelfPosition } from '../../../types/shelfPosition';
+import { ShelfPositionDataService } from '../../../services/shelfPosition/shelf-position-data.service';
 
 @Component({
-  selector: 'app-create-device',
+  selector: 'app-create-shelf-position',
   imports: [
     RouterModule,
     MatCardModule,
@@ -21,15 +20,15 @@ import { Device } from '../../types/device';
     MatButtonModule,
     MatSelectModule,
   ],
-  templateUrl: './create-device.component.html',
-  styleUrl: './create-device.component.css',
+  templateUrl: './create-shelf-position.component.html',
+  styleUrl: './create-shelf-position.component.css'
 })
-export class CreateDeviceComponent {
-  device : Device = {} as Device
+export class CreateShelfPositionComponent {
+  shelfPosition: ShelfPosition = {} as ShelfPosition
 
-  constructor(private deviceService: DeviceDataService) {} //Dependemcy Injection
+  constructor(private shelfPositionDataService: ShelfPositionDataService) {}
 
-  async onSubmit() {
-    await this.deviceService.saveDevice(this.device);
+  async onSubmit(){
+    await this.shelfPositionDataService.saveShelfPosition(this.shelfPosition)
   }
 }

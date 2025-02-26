@@ -1,0 +1,23 @@
+<mat-card class="form-container">
+    <mat-card-title>Create ShelfPosition</mat-card-title>
+    <mat-card-content>
+      <form>
+        <!-- shelf ID -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>shelfPosition ID</mat-label>
+          <input matInput type="text" [(ngModel)]="shelfPosition.id" name="shelfPositionId" required>
+        </mat-form-field>
+  
+        <!-- shelf Name -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>shelfPositionName</mat-label>
+          <input matInput type="text" [(ngModel)]="shelfPosition.name" name="shelfPositionName" required>
+        </mat-form-field>
+  
+  
+        <!-- Submit Button -->
+        <button mat-raised-button color="primary" class="full-width" (click)="onSubmit()" routerLink="/shelf-positions">Create shelf</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

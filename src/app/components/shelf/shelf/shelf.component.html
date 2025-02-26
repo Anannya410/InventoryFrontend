@@ -1,0 +1,12 @@
+<app-header></app-header>
+
+<div class="button-container">
+  <button mat-raised-button color="primary" routerLink="/create-shelf">
+    Create Shelf
+  </button>
+</div>
+
+
+<div *ngFor="let shelf of shelves">
+  <app-shelf-list [shelf]="shelf"/>
+</div>

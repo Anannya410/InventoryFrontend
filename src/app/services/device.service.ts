@@ -12,13 +12,13 @@ export class DeviceDataService {
   private deleteApiUrl = 'http://localhost:8080/api/devices/delete';
   private updateApiUrl = 'http://localhost:8080/api/devices/update';
 
-  constructor() {}
-
   private devicesObservable$: BehaviorSubject<Device[]> = new BehaviorSubject<Device[]>(
     []
   );
 
   devices = this.devicesObservable$.asObservable();
+
+  constructor() {}
 
   async saveDevice(device: Device) {
     try {

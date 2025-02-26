@@ -1,5 +1,6 @@
 import { Component, Input, signal } from '@angular/core';
-import { DeviceDataService } from '../../services/device.service';
+import { CommonModule } from '@angular/common';
+import { Shelf } from '../../../types/shelf';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -7,11 +8,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { Device } from '../../types/device';
 
 @Component({
-  selector: 'app-device-list',
+  selector: 'app-shelf-list',
   imports: [
+    CommonModule,
     MatButtonModule,
     MatCardModule,
     MatExpansionModule,
@@ -20,28 +21,26 @@ import { Device } from '../../types/device';
     MatFormFieldModule,
     MatInputModule,
   ],
-  templateUrl: './device-list.component.html',
-  styleUrl: './device-list.component.css'
+  templateUrl: './shelf-list.component.html',
+  styleUrl: './shelf-list.component.css'
 })
-export class DeviceListComponent {
+export class ShelfListComponent {
   readonly panelOpenState = signal(false);
 
   isEditable = false;
 
-  @Input() device: Device = {} as Device
-
-  constructor(private deviceDataService: DeviceDataService) {}
+  @Input() shelf: Shelf = {} as Shelf;
 
   toggleUpdate() {
     this.isEditable = true;
   }
 
-  async updateDevice() {
+  async updateShelf(){
     this.isEditable = false;
-    await this.deviceDataService.updateDevice(this.device);
   }
 
-  async deleteDevice() {
-    await this.deviceDataService.deleteDevice(this.device.id);
+  async deleteShelf(){
+
   }
+
 }
