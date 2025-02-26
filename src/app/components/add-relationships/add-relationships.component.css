@@ -1,0 +1,20 @@
+.relationship-card {
+    margin: 40px;
+    padding: 20px;
+  }
+  
+  .form-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  mat-form-field {
+    flex: 1; /* Ensures both fields have equal width */
+    min-width: 200px;
+  }
+  
+  button {
+    white-space: nowrap;
+  }
+  

@@ -5,7 +5,7 @@ import { HeaderComponent } from '../header/header.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { DeviceDataService } from '../../services/device.service';
+import { DeviceDataService } from '../../services/device/device.service'; 
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';

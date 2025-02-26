@@ -1,0 +1,37 @@
+<mat-card class="relationship-card">
+    <mat-card-title>Device - Shelf Position Relationship</mat-card-title>
+    <form>
+      <div class="form-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Device ID</mat-label>
+          <input matInput [(ngModel)]="relation1.deviceId" name="deviceId" required />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Shelf Position ID</mat-label>
+          <input matInput [(ngModel)]="relation1.shelfPositionId" name="shelfPositionId" required />
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" (click)="onSubmitRelation1()" routerLink="/shelf-positions">Add Relationship</button>
+      </div>
+    </form>
+  </mat-card>
+
+  <mat-card class="relationship-card">
+    <mat-card-title>Shelf - Shelf Position Relationship</mat-card-title>
+    <form>
+      <div class="form-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Shelf ID</mat-label>
+          <input matInput [(ngModel)]="relation2.shelfId" name="shelfId" required />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Shelf Position ID</mat-label>
+          <input matInput [(ngModel)]="relation2.shelfPositionId" name="shelfPositionId" required />
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" (click)="onSubmitRelation2()" routerLink="/shelves">Add Relationship</button>
+      </div>
+    </form>
+  </mat-card>

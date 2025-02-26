@@ -8,7 +8,7 @@
 
       <div *ngIf="shelf.shelfPositionId !== null; else noRelations" class="relations-container">
         <span>Relations:</span>
-        <span>shelfPosition {{ shelf.shelfPositionId }}</span>
+        <span>shelfPosition: {{ shelf.shelfPositionId }}</span>
       </div>
       <ng-template #noRelations>
         <span style="font-size: italic; color: gray;">No relations available</span>

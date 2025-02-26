@@ -5,6 +5,7 @@ import { ShelfComponent } from './components/shelf/shelf/shelf.component';
 import { ShelfPositionComponent } from './components/shelfPosition/shelf-position/shelf-position.component';
 import { CreateShelfComponent } from './components/shelf/create-shelf/create-shelf.component';
 import { CreateShelfPositionComponent } from './components/shelfPosition/create-shelf-position/create-shelf-position.component';
+import { AddRelationshipsComponent } from './components/add-relationships/add-relationships.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -12,5 +13,6 @@ export const routes: Routes = [
     {path: 'shelves', component: ShelfComponent},
     {path: 'create-shelf', component: CreateShelfComponent},
     {path: 'shelf-positions', component: ShelfPositionComponent},
-    {path: 'create-shelfPosition', component: CreateShelfPositionComponent}
+    {path: 'create-shelfPosition', component: CreateShelfPositionComponent},
+    {path: 'add-relations', component:AddRelationshipsComponent}
 ];

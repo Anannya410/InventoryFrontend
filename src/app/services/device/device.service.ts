@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import axios from 'axios';
-import { Device } from '../types/device';
+import { Device} from '../../types/device'; 
 
 @Injectable({
   providedIn: 'root',

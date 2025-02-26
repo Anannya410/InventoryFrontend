@@ -7,7 +7,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
-import { DeviceDataService } from '../../services/device.service';
+import { DeviceDataService } from '../../services/device/device.service'; 
 import { Device } from '../../types/device';
 
 @Component({

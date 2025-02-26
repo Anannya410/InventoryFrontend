@@ -1,5 +1,5 @@
 import { Component, Input, signal } from '@angular/core';
-import { DeviceDataService } from '../../services/device.service';
+import { DeviceDataService } from '../../services/device/device.service'; 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
