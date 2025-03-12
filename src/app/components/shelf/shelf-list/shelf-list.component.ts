@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, Input, signal, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Shelf } from '../../../types/shelf';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ShelfDataService } from '../../../services/shelf/shelf-data.service';
+import { MatDialog } from '@angular/material/dialog';
+import { SummaryDialogComponent } from '../summary-dialog/summay-dialog.component';
 
 @Component({
   selector: 'app-shelf-list',
@@ -23,16 +25,25 @@ import { ShelfDataService } from '../../../services/shelf/shelf-data.service';
     MatInputModule,
   ],
   templateUrl: './shelf-list.component.html',
-  styleUrl: './shelf-list.component.css'
+  styleUrl: './shelf-list.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShelfListComponent {
   readonly panelOpenState = signal(false);
+  readonly dialog = inject(MatDialog);
 
   isEditable = false;
 
   @Input() shelf: Shelf = {} as Shelf;
 
   constructor(private shelfDataService: ShelfDataService){}
+
+  openDialog(){
+    console.log("Clicked")
+    this.dialog.open(SummaryDialogComponent, {
+      width: '500px'
+    });
+  }
 
   toggleUpdate(){
     this.isEditable = true;

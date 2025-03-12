@@ -21,7 +21,7 @@
         }
       </mat-expansion-panel-header>
       <div class="bottom-container">
-        @if(shelf.shelfPosition !== null){
+        <!-- @if(shelf.shelfPosition !== null){
           <div class="relations-container">
             <span>Relations:</span>
             <span>shelfPosition: {{ shelf.shelfPosition.id }}</span>
@@ -31,7 +31,13 @@
           <div>
             <span style="font-size: italic; color: gray;">No relations available</span>
           </div>
-        }
+        } -->
+
+        <div class="button-container">
+          <button mat-fab extended (click)="openDialog()">
+            Summary
+          </button>
+        </div>
 
         <mat-card-actions>
           <div class="button-container">
@@ -46,7 +52,6 @@
             </button>
           }
           </div>
-
           <div class="button-container">
           <button mat-fab color="primary" (click)="deleteShelf()">
             <mat-icon>delete</mat-icon>
