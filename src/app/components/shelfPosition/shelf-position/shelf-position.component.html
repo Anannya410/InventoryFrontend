@@ -1,11 +1,21 @@
 <app-header></app-header>
 
-<div class="button-container">
-  <button mat-raised-button color="primary" routerLink="/create-shelfPosition">
-    Create ShelfPosition
-  </button>
+<div class="header-container">
+  <h2>Shelf Positions</h2>
+  <div class="button-container">
+    <button mat-raised-button color="primary" routerLink="/create-shelfPosition">
+      Create ShelfPosition
+    </button>
+  </div>
 </div>
 
+
+<mat-expansion-panel disabled class="header-row">
+  <mat-expansion-panel-header>
+    <mat-panel-title class="header-item"> ID </mat-panel-title>
+    <mat-panel-description> Name</mat-panel-description>
+  </mat-expansion-panel-header>
+</mat-expansion-panel>
 
 <div *ngFor="let shelfPosition of shelfPositions">
   <app-shelf-position-list [shelfPosition]="shelfPosition"/>

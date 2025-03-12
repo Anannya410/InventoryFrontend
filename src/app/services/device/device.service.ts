@@ -34,6 +34,7 @@ export class DeviceDataService {
   async getDevices() {
     try {
       const response = await axios.get(this.getApiUrl);
+      console.log("response.data: ", response.data)
       this.devicesObservable$.next(response.data);
     } catch (err) {
       console.log(err);
@@ -48,12 +49,12 @@ export class DeviceDataService {
     }
   }
 
-  async deleteDevice(id: number) {
+  async deleteDevice(name: string) {
     try {
-      const response = await axios.delete(`${this.deleteApiUrl}/${id}`);
+      const response = await axios.delete(`${this.deleteApiUrl}/${name}`);
       if (response.status === 200) {
         const updatedData = this.devicesObservable$.value.filter(
-          (item: Device) => item.id !== id
+          (item: Device) => item.name !== name
         );
         this.devicesObservable$.next(updatedData);
         console.log('Device Deleted Successfully');

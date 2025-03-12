@@ -1,39 +1,62 @@
 <mat-accordion>
+  
+
     <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)" >
       <mat-expansion-panel-header>
-        <mat-panel-title> {{ device.id }} </mat-panel-title>
         @if(!isEditable){
-          <mat-panel-description> {{ device.name }} </mat-panel-description>
+          <mat-panel-title> {{ device.id }} </mat-panel-title>
+        }
+        @else {
+          <mat-panel-title>
+            <input matInput type="text" [(ngModel)]="device.id" name="deviceId" required>
+          </mat-panel-title>
+        }
+
+        <mat-panel-description> {{ device.name }} </mat-panel-description>
+
+        @if(!isEditable){
           <mat-panel-description> {{ device.deviceType }} </mat-panel-description>
         }
         @else{
-          <mat-form-field appearance="outline" class="full-width">
-            <input matInput type="text" [(ngModel)]="device.name" name="deviceName" required>
-          </mat-form-field>
-  
-          <mat-form-field appearance="outline" class="full-width">
+          <mat-panel-description>
             <input matInput type="text" [(ngModel)]="device.deviceType" name="deviceType" required>
-          </mat-form-field>
+        </mat-panel-description>
         }
       </mat-expansion-panel-header>
-      <mat-card-actions>
-        <div class="button-container">
-        @if(!isEditable){
-          <button mat-fab color="primary" (click)="toggleUpdate()">
-            <mat-icon>edit</mat-icon>
-          </button>
-        }
-        @else {
-          <button mat-fab color="primary" (click)="updateDevice()">
-            <mat-icon>save</mat-icon>
-          </button>
-        }
-        </div>
-        <div class="button-container">
-        <button mat-fab color="primary" (click)="deleteDevice()">
-          <mat-icon>delete</mat-icon>
-        </button>
-        </div>
-      </mat-card-actions>
+        <div class="bottom-container">
+          @if(device.shelfPosition.length > 0){
+            <div class="relations-container">
+              <span>Relations: </span>
+              <span>List of Shelf Positions in relation with {{device.name}}</span>
+              @for (shelfPosition of device.shelfPosition; track $index) {
+                <span>{{shelfPosition.id}}: {{shelfPosition.name}}</span>
+              }
+            </div>
+          }
+          @else{
+            <div>
+              <span style="font-size: italic; color: gray;">No relations available</span>
+            </div>
+          }
+          <mat-card-actions>
+            <div class="button-container">
+              @if(!isEditable){
+                <button mat-fab color="primary" (click)="toggleUpdate()">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              }
+              @else {
+                <button mat-fab color="primary" (click)="updateDevice()">
+                  <mat-icon>save</mat-icon>
+                </button>
+              }
+            </div>
+            <div class="button-container">
+              <button mat-fab color="primary" (click)="deleteDevice()">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+        </mat-card-actions>
+      </div>
     </mat-expansion-panel>
   </mat-accordion>

@@ -8,13 +8,10 @@ import { DeviceShelfPositionRelation } from '../../types/deviceShelfPositionRela
 import { RelationsService } from '../../services/relations/relations.service';
 import { RouterLink } from '@angular/router';
 import { ShelfShelfPositionRelation } from '../../types/shelfShelfPositionRelation';
-import { HeaderComponent } from '../header/header.component';
-
 
 @Component({
   selector: 'app-add-relationships',
   imports: [
-    HeaderComponent,
     FormsModule,
     MatInputModule,
     MatButtonModule,
@@ -23,7 +20,7 @@ import { HeaderComponent } from '../header/header.component';
     RouterLink
   ],
   templateUrl: './add-relationships.component.html',
-  styleUrl: './add-relationships.component.css'
+  styleUrl: './add-relationships.component.css',
 })
 export class AddRelationshipsComponent {
   relation1 : DeviceShelfPositionRelation = {} as DeviceShelfPositionRelation
@@ -36,6 +33,6 @@ export class AddRelationshipsComponent {
   }
 
   async onSubmitRelation2(){
-    await this.relationsService.addShelftoShelfPosition(this.relation2);
+    let response = await this.relationsService.addShelftoShelfPosition(this.relation2);
   }
 }

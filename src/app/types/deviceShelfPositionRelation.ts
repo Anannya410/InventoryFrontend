@@ -1,4 +1,4 @@
 export type DeviceShelfPositionRelation = {
-    deviceId: number,
+    deviceName: string,
     shelfPositionId: number
 }

@@ -9,6 +9,8 @@ import axios from 'axios';
 export class ShelfDataService {
   private getShelfApiUrl = 'http://localhost:8080/api/shelf/getall';
   private saveShelfApiUrl = 'http://localhost:8080/api/shelf/save';
+  private updateShelfApiUrl = 'http://localhost:8080/api/shelf/update';
+  private deleteShelfApiUrl = 'http://localhost:8080/api/shelf/delete'
 
   private shelvesObservable$: BehaviorSubject<Shelf[]> = new BehaviorSubject<Shelf[]>(
     []
@@ -34,6 +36,29 @@ export class ShelfDataService {
     }
     catch(err){
       console.log(err)
+    }
+  }
+
+  async updateShelf(shelf : Shelf){
+    try{
+      await axios.put(this.updateShelfApiUrl, shelf);
+    }catch(err){
+      console.log(err);
+    }
+  }
+
+  async deleteShelf(id : number){
+    try{
+      const response = await axios.delete(`${this.deleteShelfApiUrl}/${id}`)
+      if(response.status === 200){
+        const updatedData = this.shelvesObservable$.value.filter(
+          (item: Shelf) => item.id !== id
+        );
+        this.shelvesObservable$.next(updatedData)
+      }
+    }catch(err){
+      console.log(err);
+      
     }
   }
 

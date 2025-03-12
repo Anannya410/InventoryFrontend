@@ -1,9 +1,14 @@
+mat-toolbar{
+    display: flex;
+    justify-content: space-between;
+}
+
 div span{
     margin-left: 1rem;
     cursor:pointer;
 }
 
 .button-container {
-    margin: 100px;
-  }
+    margin: 1rem;
+}
   

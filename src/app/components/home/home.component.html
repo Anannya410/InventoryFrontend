@@ -1,9 +1,12 @@
 <app-header></app-header>
 
-<div class="button-container">
-  <button mat-raised-button color="primary" routerLink="/create-device">
-    Create Device
-  </button>
+<div class="header-container">
+  <h2>Devices</h2>
+  <div class="button-container">
+    <button mat-raised-button color="primary" routerLink="/create-device">
+      Create Device
+    </button>
+  </div>
 </div>
 
 <!-- <div class="card-container">
@@ -15,6 +18,14 @@
     </mat-card-content>
   </mat-card>  
 </div> -->
+
+<mat-expansion-panel disabled class="header-row">
+  <mat-expansion-panel-header>
+    <mat-panel-title class="header-item"> ID </mat-panel-title>
+    <mat-panel-description> Name</mat-panel-description>
+    <mat-panel-description> Type</mat-panel-description>
+  </mat-expansion-panel-header>
+</mat-expansion-panel>
 
 <div *ngFor="let device of devices">
   <app-device-list [device]="device"/>

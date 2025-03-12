@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ShelfPosition } from '../../../types/shelfPosition';
 import { ShelfPositionDataService } from '../../../services/shelfPosition/shelf-position-data.service';
 import { MatButtonModule } from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @Component({
   selector: 'app-shelf-position',
@@ -14,7 +15,8 @@ import { MatButtonModule } from '@angular/material/button';
     HeaderComponent, 
     ShelfPositionListComponent, 
     CommonModule,
-    MatButtonModule
+    MatButtonModule,
+    MatExpansionModule
   ],
   templateUrl: './shelf-position.component.html',
   styleUrl: './shelf-position.component.css'
@@ -28,6 +30,7 @@ export class ShelfPositionComponent {
     await this.shelfPositionDataService.getShelfPositions();
     this.shelfPositionDataService.shelves.subscribe((data) => {
       this.shelfPositions = data;
+      console.log(this.shelfPositions)
     });
   }
 }

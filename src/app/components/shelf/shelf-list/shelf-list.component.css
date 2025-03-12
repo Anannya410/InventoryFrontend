@@ -1,26 +1,36 @@
 mat-expansion-panel{
-    margin-right: 40px;
-    margin-left: 40px;
-  }
-  
-  mat-card-actions{
-    justify-content: right;
-  }
-  
-  .relations-container {
-    padding: 12px;
-    margin-top: 10px;
-  }
-  
-  .relations-container span {
-    display: block; 
-    font-size: 14px;
-    color: #333;
-    margin: 4px 0;
-  }
-  
-  .relations-container span:first-child {
-    font-weight: bold;
-    color: #007bff; 
-  }
-  
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.bottom-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.relations-container {
+  padding: 12px;
+  margin-top: 10px;
+}
+
+.relations-container span {
+  display: block; 
+  font-size: 14px;
+  color: #333;
+  margin: 4px 0;
+}
+
+.relations-container span:first-child {
+  font-weight: bold;
+  color: #007bff; 
+}
+
+mat-card-actions{
+  display: flex;
+  justify-content: right;
+}
+
+.button-container{
+  margin: 5px;
+}

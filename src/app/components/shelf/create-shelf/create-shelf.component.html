@@ -19,12 +19,6 @@
           <mat-label>shelf Type</mat-label>
           <input matInput type="text" [(ngModel)]="shelf.shelfType" name="shelfType" required>
         </mat-form-field>
-
-        <!-- ShelfPosition ID -->
-        <mat-form-field appearance="outline" class="full-width">
-            <mat-label>shelfPosition ID</mat-label>
-            <input matInput type="text" [(ngModel)]="shelf.shelfPositionId" name="shelfPositionId">
-        </mat-form-field>
   
         <!-- Submit Button -->
         <button mat-raised-button color="primary" class="full-width" (click)="onSubmit()" routerLink="/shelves">Create shelf</button>

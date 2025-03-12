@@ -21,7 +21,7 @@ import { Shelf } from '../../../types/shelf';
     MatSelectModule,
   ],
   templateUrl: './create-shelf.component.html',
-  styleUrl: './create-shelf.component.css',
+  styleUrl: './create-shelf.component.css'
 })
 export class CreateShelfComponent {
   shelf : Shelf = {} as Shelf

@@ -6,6 +6,7 @@ import { ShelfListComponent } from '../shelf-list/shelf-list.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @Component({
   selector: 'app-shelf',
@@ -14,10 +15,11 @@ import { MatButtonModule } from '@angular/material/button';
     HeaderComponent, 
     ShelfListComponent, 
     CommonModule,
-    MatButtonModule
+    MatButtonModule,
+    MatExpansionModule
   ],
   templateUrl: './shelf.component.html',
-  styleUrl: './shelf.component.css',
+  styleUrl: './shelf.component.css'
 })
 export class ShelfComponent {
   shelves: Shelf[] = [];

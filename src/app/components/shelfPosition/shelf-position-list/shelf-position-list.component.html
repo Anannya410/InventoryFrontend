@@ -2,16 +2,52 @@
     <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)" >
       <mat-expansion-panel-header>
         <mat-panel-title> {{ shelfPosition.id }} </mat-panel-title>
-          <mat-panel-description> {{ shelfPosition.name }} </mat-panel-description>  
+        @if(!isEditable){
+          <mat-panel-description> {{ shelfPosition.name }} </mat-panel-description>
+        }
+        @else{
+          <mat-form-field appearance="outline" class="full-width">
+            <input matInput type="text" [(ngModel)]="shelfPosition.name" name="shelfPositionName" required>
+          </mat-form-field>
+        } 
       </mat-expansion-panel-header>
-      <div *ngIf="shelfPosition.deviceId !== null || shelfPosition.shelf !== null; else noRelations" class="relations-container">
-        <span>Relations:</span>
-        <span *ngIf="shelfPosition.deviceId">Device: {{ shelfPosition.deviceId }}</span>
-        <span *ngIf="shelfPosition.shelf">Shelf: {{ shelfPosition.shelf.id }}</span>
+      <div class="bottom-container">
+        @if(shelfPosition.device !== null || shelfPosition.shelf!== null){
+          <div class="relations-container">
+            <span>Relations:</span>
+            @if(shelfPosition.device){
+              <span>Device: {{ shelfPosition.device.name}}</span>
+            }
+            @if(shelfPosition.shelf){
+              <span>Shelf: {{ shelfPosition.shelf.id }}</span>
+            }
+          </div>
+        }
+        @else {
+          <div>
+            <span style="font-size: italic; color: gray;">No relations available</span>
+          </div>
+        }
+
+        <mat-card-actions>
+          <div class="button-container">
+          @if(!isEditable){
+            <button mat-fab color="primary" (click)="toggleUpdate()">
+              <mat-icon>edit</mat-icon>
+            </button>
+          }
+          @else {
+            <button mat-fab color="primary" (click)="updateShelfPosition()">
+              <mat-icon>save</mat-icon>
+            </button>
+          }
+          </div>
+          <div class="button-container">
+          <button mat-fab color="primary" (click)="deleteShelfPosition()">
+            <mat-icon>delete</mat-icon>
+          </button>
+          </div>
+        </mat-card-actions>
       </div>
-      <ng-template #noRelations>
-        <span style="font-size: italic; color: gray;">No relations available</span>
-      </ng-template>
-      
     </mat-expansion-panel>
   </mat-accordion>

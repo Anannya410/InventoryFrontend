@@ -1,13 +1,9 @@
+import { Device } from "./device"
 import { Shelf } from "./shelf"
 
-enum Rack{
-    TOP = "Top",
-    BOTTOM = "Bottom"
-}
-
 export type ShelfPosition ={
-    id: number,
-    name: Rack,
-    deviceId: number,
+    id : number,
+    name : string,
+    device : Device,
     shelf : Shelf
 }

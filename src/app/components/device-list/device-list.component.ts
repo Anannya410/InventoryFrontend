@@ -42,6 +42,6 @@ export class DeviceListComponent {
   }
 
   async deleteDevice() {
-    await this.deviceDataService.deleteDevice(this.device.id);
+    await this.deviceDataService.deleteDevice(this.device.name);
   }
 }

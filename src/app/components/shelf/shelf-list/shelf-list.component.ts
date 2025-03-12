@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ShelfDataService } from '../../../services/shelf/shelf-data.service';
 
 @Component({
   selector: 'app-shelf-list',
@@ -31,16 +32,19 @@ export class ShelfListComponent {
 
   @Input() shelf: Shelf = {} as Shelf;
 
-  toggleUpdate() {
+  constructor(private shelfDataService: ShelfDataService){}
+
+  toggleUpdate(){
     this.isEditable = true;
+
   }
 
   async updateShelf(){
     this.isEditable = false;
+    await this.shelfDataService.updateShelf(this.shelf);
   }
 
   async deleteShelf(){
-
+    await this.shelfDataService.deleteShelf(this.shelf.id);
   }
-
 }
