@@ -17,6 +17,8 @@
   </mat-expansion-panel-header>
 </mat-expansion-panel>
 
-<div *ngFor="let shelfPosition of shelfPositions">
-  <app-shelf-position-list [shelfPosition]="shelfPosition"/>
+<div class="list-container"> 
+  <div *ngFor="let shelfPosition of shelfPositions">
+    <app-shelf-position-list [shelfPosition]="shelfPosition"/>
+  </div>
 </div>

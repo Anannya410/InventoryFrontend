@@ -41,7 +41,9 @@ export class ShelfListComponent {
   openDialog(){
     console.log("Clicked")
     this.dialog.open(SummaryDialogComponent, {
-      width: '500px'
+      width: '800px',
+      height: '500px',
+      data: this.shelf
     });
   }
 

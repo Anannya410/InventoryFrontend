@@ -27,6 +27,8 @@
   </mat-expansion-panel-header>
 </mat-expansion-panel>
 
-<div *ngFor="let device of devices">
-  <app-device-list [device]="device"/>
+<div class="list-container">
+  <div *ngFor="let device of devices">
+    <app-device-list [device]="device"/>
+  </div>
 </div>

@@ -1,7 +1,66 @@
 <h2 mat-dialog-title>Shelf Summary</h2>
 <mat-dialog-content class="mat-typography">
-  <p>Shelf Name</p>
+  <div class="nodes-container">
+    <div 
+      class="node" 
+      style="background-color: #c990c0; border: 3px solid #b261a5;" 
+      (click)="selectShelf()"
+    >
+      {{ shelf.name }}
+    </div>
+
+    @if(shelf.shelfPosition != null){
+      <div class="connector"></div>
+      <div 
+        class="node" 
+        style= "background-color: #f79767; border: 3px solid #f36924;"
+        (click)="selectShelfPostion()"
+      >
+        {{ shelf.shelfPosition.name }}
+      </div>
+
+      @if(shelf.shelfPosition.device != null){
+        <div class="connector"></div>
+        <div 
+          class="node" 
+          style= "background-color: #57c7e3; border: 3px solid #23b3d7;"
+          (click)="selectDevice()"
+        > 
+          {{ shelf.shelfPosition.device.name }}
+        </div>
+      }
+    }
+
+  </div>
+
+  @if(isShelfSelected === true || isShelfPositionSelected === true || isDeviceSelected === true){
+    <div class="'details-container">
+      <h3>Details</h3>
+
+      @if(isShelfSelected){
+        <p>
+          <strong>ID: </strong> {{ shelf.id }} <br>
+          <strong>Name: </strong> {{ shelf.name }} <br>
+          <strong>Type: </strong> {{ shelf.shelfType }} <br>
+        </p>
+      }
+      @else if (isShelfPositionSelected) {
+        <p>
+          <strong>ID: </strong> {{ shelf.shelfPosition.id }} <br>
+          <strong>Name: </strong> {{ shelf.shelfPosition.name }} <br>
+        </p>
+      }
+      @else if(isDeviceSelected){
+        <p>
+          <strong>ID: </strong> {{ shelf.shelfPosition.device.id }} <br>
+          <strong>Name: </strong> {{ shelf.shelfPosition.device.name }} <br>
+          <strong>Type: </strong> {{ shelf.shelfPosition.device.deviceType }} <br>
+        </p>
+      }
+    </div>
+  }
 </mat-dialog-content>
+
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Close</button>
 </mat-dialog-actions>

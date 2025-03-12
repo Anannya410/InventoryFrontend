@@ -17,6 +17,8 @@
   </mat-expansion-panel-header>
 </mat-expansion-panel>
 
-<div *ngFor="let shelf of shelves">
-  <app-shelf-list [shelf]="shelf"/>
+<div class="list-container">
+  <div *ngFor="let shelf of shelves">
+    <app-shelf-list [shelf]="shelf"/>
+  </div>
 </div>
